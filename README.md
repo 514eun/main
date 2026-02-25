@@ -69,6 +69,6 @@ python main.py
 * **Library:** os, datetime, paramiko, netmiko
 * **Network:** Cisco IOS (Router, Switch), SNMP, MRTG
 
-## 트러블슈팅 및 회고 (Troubleshooting)
+## 트러블슈팅 
 Netmiko를 이용해 다량의 장비에 일괄 접속할 때, 꺼져있거나 단절된 단 하나의 장비 때문에 전체 스크립트 프로세스가 중단되는 치명적인 문제가 있었습니다.
 이를 해결하기 위해 `NetmikoTimeoutException`과 `NetmikoAuthenticationException` 예외 처리(Try-Except)를 꼼꼼하게 적용했습니다. 접속에 실패한 장비는 건너뛰되, 어떤 에러(타임아웃, 인증 실패 등)로 접속하지 못했는지를 해당 장비 로그 파일에 Append(누적)하도록 수정하여 스크립트의 안정성과 유지보수성을 크게 향상시켰습니다.
